@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Наши возможности — инженерное бюро</title>
+<style>
+  :root{
+    --bg:#0B0B0D;
+    --red1:#92211F;
+    --red2:#7A1616;
+    --red3:#3A0A0A;
+    --grey1:#FFFFFF;
+    --grey2:#E9E9E9;
+    --grey3:#CFCFD2;
+    --ink:#17171A;
+    --white:#FFFFFF;
+    --line:rgba(255,255,255,.14);
+    --font:"Arial Narrow","PT Sans Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
+    font-family:var(--font);
+    font-size:16px;
+    line-height:1.45;
+    overflow-wrap:anywhere;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:0;
+  }
+  img{max-width:100%;height:auto;display:block;}
+  a{color:inherit;}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    background:var(--bg);
+  }
+  .topbar__inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;padding:13px 0;min-height:48px;
+  }
+  .topbar__label{
+    font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);font-weight:700;line-height:1.25;
+  }
+  .topbar__phone{
+    font-size:13.5px;letter-spacing:.06em;color:rgba(255,255,255,.9);
+    text-decoration:none;font-weight:700;white-space:nowrap;
+    border-bottom:1px solid rgba(255,255,255,.28);padding-bottom:1px;
+    transition:border-color .2s,color .2s;
+  }
+  .topbar__phone:hover{border-color:#fff;color:#fff;}
+  @media (max-width:560px){ .topbar__phone{display:none;} }
+
+  /* ---------- COVER ---------- */
+  .cover{
+    padding:clamp(44px,9vw,86px) 0 clamp(40px,7vw,64px);
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .cover h1{
+    margin:0;
+    font-size:clamp(34px,7vw,72px);
+    line-height:.95;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  .cover__plate{
+    display:inline-block;
+    margin:clamp(18px,3vw,26px) 0 0;
+    padding:9px 20px 10px;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:999px;
+    font-size:clamp(13px,2.2vw,17px);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:#fff;
+  }
+  .cover__line{
+    margin:16px auto 0;
+    font-size:clamp(12.5px,2vw,15px);
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.62);
+    font-weight:700;
+  }
+  .cover__text{
+    max-width:720px;
+    margin:clamp(26px,4vw,36px) auto 0;
+    font-size:clamp(15px,1.9vw,17px);
+    line-height:1.45;
+    color:rgba(255,255,255,.78);
+    text-align:left;
+  }
+  .cover__fact{
+    margin:clamp(24px,4vw,32px) auto 0;
+    max-width:720px;
+    font-size:clamp(12.5px,1.9vw,14px);
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:#fff;
+    border-top:1px solid var(--line);
+    padding-top:16px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section{
+    padding:clamp(34px,6vw,60px) 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section:last-of-type{border-bottom:0;}
+  .section__head{
+    display:flex;align-items:center;gap:14px;
+    margin:0 0 clamp(18px,3vw,28px);
+  }
+  .section__title{
+    margin:0;
+    display:inline-block;
+    padding:8px 16px 9px;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:999px;
+    font-size:clamp(12.5px,2vw,15px);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    line-height:1.2;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:18px;
+  }
+  @media (max-width:700px){
+    .grid{grid-template-columns:minmax(0,1fr);}
+  }
+  @media (max-width:400px){
+    .card{padding:20px 18px 18px 58px;}
+    .card__num{left:14px;width:34px;height:34px;font-size:12.5px;}
+    .card h3{font-size:18px;}
+    .card__meta{padding:12px 12px;font-size:14px;gap:10px;}
+    .card__meta b{font-size:10px;letter-spacing:.12em;padding:3px 7px 4px;}
+    .card__meta div{overflow-wrap:anywhere;}
+    .wrap{padding:0 16px;}
+    .section__title{font-size:12px;letter-spacing:.1em;padding:7px 12px 8px;}
+    .btn{padding:12px 18px;font-size:14px;flex:1 1 100%;letter-spacing:.03em;}
+  }
+  @media (max-width:360px){
+    .card__meta{padding:11px 10px;font-size:13.5px;gap:9px;}
+    .card__meta b{font-size:9.5px;letter-spacing:.1em;padding:3px 6px 4px;white-space:nowrap;}
+    .card__meta div{overflow-wrap:anywhere;word-break:break-word;}
+    .card{padding:18px 14px 16px 54px;}
+  }
+
+  /* ---------- CARD ---------- */
+  .card{
+    position:relative;
+    border-radius:18px;
+    padding:22px 22px 20px 64px;
+    min-width:0;
+    transition:transform .18s ease, box-shadow .18s ease;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-2px);}
+  .card__num{
+    position:absolute;
+    left:18px;top:22px;
+    width:38px;height:38px;
+    border-radius:50%;
+    background:#0B0B0D;
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;letter-spacing:.04em;
+    border:1px solid rgba(255,255,255,.22);
+  }
+  .card h3{
+    margin:0 0 8px;
+    font-size:20px;line-height:1.1;
+    text-transform:uppercase;font-weight:700;
+    letter-spacing:.01em;
+  }
+  .card p{margin:0 0 14px;font-size:15px;line-height:1.45;}
+  .card__meta{
+    margin-top:auto;
+    padding:14px 16px;
+    border-radius:12px;
+    border-top:none;
+    font-size:15px;
+    line-height:1.4;
+    display:grid;
+    gap:12px;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .card__meta b{
+    display:block;width:max-content;
+    padding:3px 8px 4px;border-radius:5px;
+    font-size:10.5px;font-weight:800;letter-spacing:.16em;
+    text-transform:uppercase;
+    margin-bottom:4px;
+    white-space:nowrap;
+  }
+  .card--red{
+    background:linear-gradient(160deg,var(--red1),var(--red2) 55%,var(--red3));
+    color:#fff;
+    box-shadow:0 1px 0 rgba(255,255,255,.12) inset;
+  }
+  .card--red p{color:rgba(255,255,255,.9);}
+  .card--red .card__meta{
+    background:rgba(0,0,0,.26);
+    color:rgba(255,255,255,.95);
+  }
+  .card--red .card__meta b{background:#FFFFFF;color:#7A1616;}
+  .card--light{
+    background:linear-gradient(160deg,var(--grey1),var(--grey2) 55%,var(--grey3));
+    color:var(--ink);
+  }
+  .card--light .card__num{border-color:rgba(0,0,0,.2);}
+  .card--light p{color:rgba(23,23,26,.86);}
+  .card--light .card__meta{
+    background:rgba(17,17,20,.07);
+    color:rgba(23,23,26,.9);
+  }
+  .card--light .card__meta b{background:#17171A;color:#FFFFFF;}
+  .card--feature{border:2px solid var(--red1);}
+  .card__tag{
+    position:absolute;top:-1px;right:14px;
+    background:var(--red1);color:#fff;
+    font-size:10.5px;font-weight:700;letter-spacing:.12em;
+    padding:4px 9px 5px;border-radius:0 0 8px 8px;
+    text-transform:uppercase;white-space:nowrap;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    padding:clamp(40px,7vw,80px) 0;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .contact h2{
+    margin:0;
+    font-size:clamp(28px,5.6vw,54px);
+    line-height:.98;
+    text-transform:uppercase;font-weight:700;
+    letter-spacing:.01em;
+  }
+  .contact__text{
+    max-width:620px;margin:18px auto 0;
+    font-size:clamp(15px,1.9vw,17px);
+    color:rgba(255,255,255,.75);
+  }
+  .contact__btns{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+    margin:clamp(26px,4vw,36px) auto 0;
+    max-width:720px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:58px;
+    padding:14px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:clamp(15px,2.2vw,19px);
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease;
+    flex:1 1 280px;
+    min-width:0;
+    text-align:center;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn--red{
+    background:linear-gradient(160deg,var(--red1),var(--red2) 55%,var(--red3));
+    color:#fff;
+    box-shadow:0 1px 0 rgba(255,255,255,.2) inset;
+  }
+  .btn--light{
+    background:linear-gradient(160deg,var(--grey1),var(--grey2) 55%,var(--grey3));
+    color:var(--ink);
+    text-transform:none;
+    letter-spacing:0;
+    font-size:17px;
+    overflow-wrap:anywhere;
+  }
+  .contact__sign{
+    margin:clamp(22px,3vw,28px) 0 0;
+    font-size:12.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.55);
+  }
+
+  .contact__note{
+    margin:16px 0 0;
+    max-width:720px;
+    margin-left:auto;margin-right:auto;
+    font-size:13px;
+    line-height:1.5;
+    color:rgba(255,255,255,.55);
+  }
+  @media (max-width:400px){
+    .contact__note{margin-top:16px;font-size:13px;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:clamp(28px,5vw,44px) 0 calc(28px + env(safe-area-inset-bottom,0px));
+    border-top:1px solid var(--line);
+  }
+  .footer__top{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:14px;flex-wrap:wrap;
+  }
+  .footer__brand{
+    font-size:clamp(16px,2.6vw,20px);
+    text-transform:uppercase;font-weight:700;letter-spacing:.04em;
+  }
+  .footer__links{display:flex;gap:18px;flex-wrap:wrap;}
+  .footer__links a{
+    font-size:14px;text-decoration:none;font-weight:700;
+    letter-spacing:.04em;color:rgba(255,255,255,.88);
+    border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:1px;
+    transition:border-color .2s,color .2s;
+  }
+  .footer__links a:hover{border-color:#fff;color:#fff;}
+  .footer__note{
+    margin-top:16px;
+    font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(255,255,255,.45);
+    line-height:1.6;
+  }
+
+  /* ---------- MOBILE STICKY BAR ---------- */
+  .mobilebar{
+    display:none;
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));
+    gap:10px;
+    background:rgba(11,11,13,.94);
+    backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+  }
+  .mobilebar a{
+    flex:1 1 0;
+    display:flex;align-items:center;justify-content:center;
+    min-height:48px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    min-width:0;
+  }
+  .mobilebar .mb-red{
+    background:linear-gradient(160deg,var(--red1),var(--red2) 55%,var(--red3));
+    color:#fff;
+  }
+  .mobilebar .mb-light{
+    background:linear-gradient(160deg,var(--grey1),var(--grey2) 55%,var(--grey3));
+    color:var(--ink);
+  }
+  @media (max-width:720px){
+    .mobilebar{display:flex;}
+    body{padding-bottom:80px;}
+  }
+
+  /* ---------- WHY (свои vs бюро) ---------- */
+  .why__head{margin:0 0 clamp(18px,3vw,26px);}
+  .why__lead{
+    margin:clamp(14px,2.4vw,20px) 0 clamp(20px,3.4vw,30px);
+    max-width:760px;
+    font-size:clamp(15px,1.9vw,17px);
+    line-height:1.45;
+    color:rgba(255,255,255,.76);
+  }
+  .why__rows{
+    display:grid;
+    gap:14px;
+    min-width:0;
+  }
+  .whyrow{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:0;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    min-width:0;
+    background:rgba(255,255,255,.02);
+  }
+  .whyrow__side{
+    padding:18px 20px 20px;
+    min-width:0;
+  }
+  .whyrow__side--own{
+    background:rgba(255,255,255,.055);
+    color:rgba(255,255,255,.78);
+    border-right:1px solid var(--line);
+  }
+  .whyrow__side--us{
+    background:linear-gradient(160deg,rgba(146,33,31,.55),rgba(122,22,22,.42) 55%,rgba(58,10,10,.5));
+    color:#fff;
+    box-shadow:inset 2px 0 0 var(--red1);
+  }
+  .whyrow__label{
+    display:inline-block;
+    margin:0 0 8px;
+    padding:3px 8px 4px;
+    border-radius:5px;
+    font-size:10.5px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    line-height:1.2;
+  }
+  .whyrow__side--own .whyrow__label{
+    background:rgba(255,255,255,.14);
+    color:rgba(255,255,255,.75);
+    border:1px solid var(--line);
+  }
+  .whyrow__side--us .whyrow__label{
+    background:#FFFFFF;
+    color:var(--red2);
+  }
+  .whyrow__text{
+    margin:0;
+    font-size:15px;
+    line-height:1.45;
+  }
+
+  .why__arith{
+    margin:clamp(20px,3.4vw,28px) 0 0;
+    padding:clamp(18px,3vw,26px);
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,255,255,.035);
+    min-width:0;
+  }
+  .why__arith-label{
+    display:inline-block;
+    margin:0 0 10px;
+    padding:3px 9px 4px;
+    border-radius:5px;
+    background:var(--red1);
+    color:#fff;
+    font-size:10.5px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .why__arith-text{
+    margin:0;
+    font-size:clamp(17px,2.6vw,22px);
+    line-height:1.3;
+    font-weight:700;
+    letter-spacing:.005em;
+    color:#fff;
+  }
+  .why__arith-note{
+    margin:10px 0 0;
+    font-size:12.5px;
+    line-height:1.45;
+    color:rgba(255,255,255,.55);
+  }
+  .why__honest{
+    margin:clamp(16px,2.6vw,20px) 0 0;
+    max-width:860px;
+    font-size:12.5px;
+    line-height:1.55;
+    color:rgba(255,255,255,.5);
+  }
+  .why__link{
+    display:inline-block;
+    margin:clamp(18px,3vw,24px) 0 0;
+    font-size:clamp(14px,1.9vw,16px);
+    font-weight:700;
+    letter-spacing:.03em;
+    color:#fff;
+    text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,.4);
+    padding-bottom:2px;
+    transition:border-color .2s,color .2s;
+  }
+  .why__link:hover{border-color:var(--red1);color:#fff;}
+  @media (max-width:720px){
+    .whyrow{grid-template-columns:minmax(0,1fr);border-radius:16px;}
+    .whyrow__side{padding:15px 16px 16px;}
+    .whyrow__side--own{border-right:0;border-bottom:1px solid var(--line);}
+    .whyrow__side--us{box-shadow:inset 3px 0 0 var(--red1);}
+    .why__arith{border-radius:16px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <div class="topbar__label">Инженерное бюро полного цикла</div>
+    <a class="topbar__phone" href="tel:+79035003629">+7 903 500-36-29</a>
+  </div>
+</header>
+
+<main>
+  <section class="cover">
+    <div class="wrap">
+      <h1>Наши возможности</h1>
+      <div class="cover__plate">Полная схема услуг</div>
+      <div class="cover__line">Механика &middot; Электроника &middot; Софт &middot; Документация по ЕСКД</div>
+      <p class="cover__text">Конструкторский подряд, разработка и модернизация лабораторных и научных установок, локализация импортных приборов, русская документация и сервис. Работаем от технической идеи до серии и сопровождения — механика, прецизионные узлы, гидравлика и пневматика, оптика, электроника, управляющий софт, прошивки, документация по ЕСКД, испытания.</p>
+      <div class="cover__fact">16 направлений &middot; 3 раздела &middot; один подрядчик вместо четырёх</div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="why__head">
+        <h2 class="section__title">Почему это дешевле, чем держать своих</h2>
+      </div>
+      <p class="why__lead">Конструктор приборов, электронщик и программист в одном городе — редкость. Держать их в штате дорого не зарплатой, а простоем.</p>
+
+      <div class="why__rows">
+        <div class="whyrow">
+          <div class="whyrow__side whyrow__side--own">
+            <span class="whyrow__label">Свой штат</span>
+            <p class="whyrow__text">Платите каждый месяц, даже когда задач нет: зарплата, взносы, рабочие места, лицензии на софт.</p>
+          </div>
+          <div class="whyrow__side whyrow__side--us">
+            <span class="whyrow__label">Бюро</span>
+            <p class="whyrow__text">Платите за задачу. Счёт появляется, когда есть работа.</p>
+          </div>
+        </div>
+
+        <div class="whyrow">
+          <div class="whyrow__side whyrow__side--own">
+            <span class="whyrow__label">Свой штат</span>
+            <p class="whyrow__text">Нужны четыре редкие специальности сразу: конструктор, электронщик, программист, метролог.</p>
+          </div>
+          <div class="whyrow__side whyrow__side--us">
+            <span class="whyrow__label">Бюро</span>
+            <p class="whyrow__text">Одна команда закрывает весь цикл — один договор вместо четырёх подрядчиков.</p>
+          </div>
+        </div>
+
+        <div class="whyrow">
+          <div class="whyrow__side whyrow__side--own">
+            <span class="whyrow__label">Свой штат</span>
+            <p class="whyrow__text">Найм редкого инженера — три-шесть месяцев поиска и риск ошибиться.</p>
+          </div>
+          <div class="whyrow__side whyrow__side--us">
+            <span class="whyrow__label">Бюро</span>
+            <p class="whyrow__text">Отвечаем за результат в договоре: сдан документ или прибор, а не «человек старался».</p>
+          </div>
+        </div>
+
+        <div class="whyrow">
+          <div class="whyrow__side whyrow__side--own">
+            <span class="whyrow__label">Свой штат</span>
+            <p class="whyrow__text">Отпуск, больничный, увольнение — работа встаёт.</p>
+          </div>
+          <div class="whyrow__side whyrow__side--us">
+            <span class="whyrow__label">Бюро</span>
+            <p class="whyrow__text">Работа не останавливается: замена внутри команды, а не поиск нового человека.</p>
+          </div>
+        </div>
+
+        <div class="whyrow">
+          <div class="whyrow__side whyrow__side--own">
+            <span class="whyrow__label">Свой штат</span>
+            <p class="whyrow__text">Под разовую задачу человека не берут: поверка, аттестация методики, входной контроль партии.</p>
+          </div>
+          <div class="whyrow__side whyrow__side--us">
+            <span class="whyrow__label">Бюро</span>
+            <p class="whyrow__text">Неделя-две работы — берём как задачу и закрываем, штат для этого не нужен.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="why__arith">
+        <span class="why__arith-label">Арифметика</span>
+        <p class="why__arith-text">Трое инженеров в штате — около 900 000 ₽ в месяц со взносами и рабочими местами, то есть 10–11 млн ₽ в год, независимо от загрузки. Отдельный проект под ключ у нас — от 280 000 ₽.</p>
+        <p class="why__arith-note">Оценка ориентировочная, без НДС.</p>
+      </div>
+
+      <p class="why__honest">Мы не заменяем штат там, где человек нужен в цеху каждый день. И если работы станет столько, что она не кончается, честнее нанять своего — поможем подобрать и обучить.</p>
+
+      <a class="why__link" href="#contact">Посчитать свою задачу в днях и рублях →</a>
+    </div>
+  </section>
+
+  <section class="section" id="s1">
+    <div class="wrap">
+      <div class="section__head"><h2 class="section__title">Раздел 1 — От наших возможностей</h2></div>
+      <div class="grid" id="grid1"></div>
+    </div>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="wrap">
+      <div class="section__head"><h2 class="section__title">Раздел 2 — От потребностей клиента</h2></div>
+      <div class="grid" id="grid2"></div>
+    </div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="wrap">
+      <div class="section__head"><h2 class="section__title">Раздел 3 — От развития бизнеса клиента</h2></div>
+      <div class="grid" id="grid3"></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Скажите, какая задача стоит</h2>
+      <p class="contact__text">Позвоните или напишите — за один разговор станет понятно, берёмся мы за это или нет</p>
+      <div class="contact__btns">
+        <a class="btn btn--red" href="tel:+79035003629">Позвонить +7 903 500-36-29</a>
+        <a class="btn btn--light" href="mailto:drogalin@gmail.com">drogalin@gmail.com</a>
+      </div>
+      <p class="contact__sign">Юрий Дрогалин &middot; инженерное бюро полного цикла</p>
+      <p class="contact__note">Цены ориентировочные, без НДС. Точная стоимость — после технического задания и осмотра прибора.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">Наши возможности</div>
+      <div class="footer__links">
+        <a href="tel:+79035003629">+7 903 500-36-29</a>
+        <a href="mailto:drogalin@gmail.com">drogalin@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer__note">Документация по ЕСКД &middot; испытания &middot; сервис &middot; обучение</div>
+  </div>
+</footer>
+
+<nav class="mobilebar" aria-label="Быстрая связь">
+  <a class="mb-red" href="tel:+79035003629">Позвонить</a>
+  <a class="mb-light" href="mailto:drogalin@gmail.com">Написать</a>
+</nav>
+
+<script>
+(function(){
+  var DATA = {
+    s1: [
+      {n:'1.1', t:'Русский пакет для импортного прибора',
+       d:'Интерфейс на русском, отчётные формы, паспорт, эксплуатационная документация.',
+       who:'дистрибьюторы китайского и параллельного импорта.',
+       task:'без русских бумаг прибор не берут в фарму, в бюджет и на аккредитованные объекты — он лежит на складе.',
+       price:'от 280 000 ₽'},
+      {n:'1.2', t:'Восстановление документации на приборы без изготовителя',
+       d:'Обмеры, восстановление схем, КД на быстроизнашиваемые узлы, руководство.',
+       who:'лаборатории с живым парком без бумаг, сервисные компании.',
+       task:'прибор нельзя обслужить, поверить и передать смене.',
+       price:'от 350 000 ₽'},
+      {n:'1.3', t:'ЗИП и расходные узлы взамен недоступных импортных',
+       d:'Уплотнения, шприцы, насадки, кюветы, фитинги: проектирование и мелкая серия через партнёрские производства.',
+       who:'сервисные компании и лаборатории, у которых прибор встал из-за копеечной детали.',
+       task:'вернуть прибор в работу, не дожидаясь параллельного импорта.',
+       price:'от 120 000 ₽ за проектирование'},
+      {n:'1.4', t:'Методики измерений под матрицу заказчика',
+       d:'Разработка и аттестация методики, валидация, комплект документов.',
+       who:'аккредитованные лаборатории, фарма, пищевые производства.',
+       task:'без аттестованной методики результат юридически пустой, а прибор простаивает.',
+       price:'от 180 000 ₽'},
+      {n:'1.5', t:'Техподдержка тендеров',
+       d:'Технические требования, ответы на запросы разъяснений, комплект документов под конкретную закупку.',
+       who:'дистрибьюторы и производители, которые участвуют в закупках и проигрывают на бумагах.',
+       task:'заявка проходит по формальным основаниям.',
+       price:'от 45 000 ₽ за закупку'},
+      {n:'1.6', t:'Входной контроль партий из Китая',
+       d:'Приёмка по ТЗ, проверка комплектности и характеристик, акт, претензия поставщику.',
+       who:'дистрибьюторы, которые получили «не то» и не могут это доказать.',
+       task:'зафиксировать отклонение так, чтобы поставщик его принял.',
+       price:'от 60 000 ₽ за партию'}
+    ],
+    s2: [
+      {n:'2.1', t:'Найти специалиста',
+       d:'Подбор инженера или наладчика под задачу: комиссия или фиксированная сумма.',
+       who:'институты и малые производители.',
+       task:'взять человека под задачу проще и дешевле, чем держать в штате.',
+       price:'15–20 % от годового дохода специалиста'},
+      {n:'2.2', t:'Поверка и аттестация «под ключ»',
+       d:'Логистика прибора в ЦСМ, подготовка, сопровождение, возврат и ввод в эксплуатацию.',
+       who:'лаборатории, у которых прибор простаивает месяцами из-за бумажной процедуры.',
+       task:'лаборатория не теряет месяц.',
+       price:'от 35 000 ₽ за прибор'},
+      {n:'2.3', t:'Измерения на стороне',
+       d:'Пока прибор стоит или методики нет, анализ выполняется в партнёрской лаборатории: организуем и отвечаем за результат.',
+       who:'те, у кого срочный анализ, а своего прибора нет.',
+       task:'результат в срок без покупки оборудования.',
+       price:'от 20 000 ₽ за серию'},
+      {n:'2.4', t:'Обучение персонала и регламент работы на приборе',
+       d:'Короткий курс, инструкция, чек-листы обслуживания.',
+       who:'лаборатории с текучкой кадров, дистрибьюторы после поставки.',
+       task:'прибор не встаёт, когда уходит человек, который умел.',
+       price:'от 90 000 ₽ за группу'},
+      {n:'2.5', t:'Обоснование закупки',
+       d:'Спецификация, смета, технико-экономическое обоснование под заявку на оборудование, грант или программу развития.',
+       who:'институты и вузы.',
+       task:'доказать необходимость покупки до того, как её отклонят.',
+       price:'от 90 000 ₽'}
+    ],
+    s3: [
+      {n:'3.1', t:'Разморозка склада', light:true, tag:'Основной продукт',
+       d:'Аудит партии импорта и превращение её в продаваемый товар: документы, интерфейс, методика, обучение сервиса — до выхода в выручку.',
+       who:'дистрибьюторы, у которых деньги лежат в приборах, а не в обороте.',
+       task:'склад начинает работать.',
+       price:'от 600 000 ₽ за партию'},
+      {n:'3.2', t:'OEM / white label',
+       d:'Разрабатываем прибор или модуль и организуем изготовление; клиент продаёт под своим брендом и своей документацией.',
+       who:'дистрибьюторы без производства и производства без своего КБ.',
+       task:'свой продукт без своего конструкторского бюро.',
+       price:'от 3 500 000 ₽'},
+      {n:'3.3', t:'QR-паспорт прибора',
+       d:'Наклейка на корпус: по ссылке документация, методика, история обслуживания, поверки, контакты сервиса.',
+       who:'дистрибьюторы и производители, у которых сервис держится на звонках и почте.',
+       task:'весь парк обслуживается по одному стандарту.',
+       price:'от 220 000 ₽ + 80 000 ₽ в год'},
+      {n:'3.4', t:'Сервисная сеть под бренд',
+       d:'Обучение и аттестация инженеров дистрибьютора, чек-листы, регламенты, эскалация.',
+       who:'тот, кто продаёт бренд без сервиса.',
+       task:'снять риск претензий по всему парку.',
+       price:'от 400 000 ₽'},
+      {n:'3.5', t:'Вывод российского прибора на внешний рынок',
+       d:'Документация на английском, поиск дистрибьютора, адаптация под местную метрологию.',
+       who:'российские производители, которым внутренний рынок уже тесен.',
+       task:'выход на экспорт без своего отдела ВЭД.',
+       price:'от 700 000 ₽'}
+    ]
+  };
+
+  function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderCard(c){
+    var cls = 'card ' + (c.light ? 'card--light' : 'card--red') + (c.tag ? ' card--feature' : '');
+    var html = '<article class="' + cls + '">' +
+      (c.tag ? '<span class="card__tag">' + esc(c.tag) + '</span>' : '') +
+      '<div class="card__num">' + esc(c.n) + '</div>' +
+      '<h3>' + esc(c.t) + '</h3>' +
+      '<p>' + esc(c.d) + '</p>' +
+      '<div class="card__meta">' +
+        '<div><b>Кому</b>' + esc(c.who) + '</div>' +
+        '<div><b>Задача</b>' + esc(c.task) + '</div>' +
+        (c.price ? '<div><b>Стоимость</b>' + esc(c.price) + '</div>' : '') +
+      '</div>' +
+    '</article>';
+    return html;
+  }
+
+  function render(id, list){
+    var el = document.getElementById(id);
+    if(!el) return;
+    try{
+      el.innerHTML = list.map(renderCard).join('');
+    }catch(e){
+      console.error('render error', id, e);
+    }
+  }
+
+  render('grid1', DATA.s1);
+  render('grid2', DATA.s2);
+  render('grid3', DATA.s3);
+})();
+</script>
+</body>
+</html>
