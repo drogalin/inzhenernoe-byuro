@@ -497,6 +497,101 @@
     .whyrow__side--us{box-shadow:inset 3px 0 0 var(--red1);}
     .why__arith{border-radius:16px;}
   }
+
+  /* ---------- PRICE ---------- */
+  .price__lead{
+    margin:0 0 clamp(20px,3vw,28px);
+    max-width:760px;
+    font-size:clamp(15px,1.9vw,17px);
+    line-height:1.5;
+    color:rgba(255,255,255,.78);
+  }
+  .price__grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(12px,2vw,18px);
+  }
+  .price__item{
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr);
+    gap:clamp(12px,1.8vw,18px);
+    align-items:start;
+    padding:clamp(16px,2.4vw,24px);
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,255,255,.035);
+    min-width:0;
+  }
+  .price__num{
+    font-size:clamp(30px,4.4vw,44px);
+    line-height:.9;
+    font-weight:700;
+    letter-spacing:-.01em;
+    color:var(--red1);
+    padding-top:2px;
+    font-variant-numeric:tabular-nums;
+  }
+  .price__item h3{
+    margin:0 0 8px;
+    font-size:clamp(13px,1.8vw,15px);
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    font-weight:700;
+    line-height:1.25;
+    color:#fff;
+  }
+  .price__item p{
+    margin:0;
+    font-size:clamp(14px,1.7vw,15.5px);
+    line-height:1.5;
+    color:var(--grey2);
+  }
+  .price__panel{
+    margin:clamp(16px,2.6vw,22px) 0 0;
+    padding:clamp(14px,2.2vw,18px) clamp(16px,2.4vw,22px);
+    border:1px solid var(--line);
+    border-left:3px solid var(--red1);
+    border-radius:14px;
+    background:rgba(255,255,255,.02);
+    font-size:12.5px;
+    line-height:1.55;
+    color:rgba(255,255,255,.55);
+  }
+  /* ---------- MORE / CONSULT (numberless cards) ---------- */
+  .section__lead{
+    margin:0 0 clamp(18px,3vw,26px);
+    max-width:860px;
+    font-size:clamp(14.5px,1.9vw,16.5px);
+    line-height:1.55;
+    color:rgba(255,255,255,.78);
+  }
+  .card--plain{padding:22px 22px 20px 24px;}
+  .card--plain p{margin-bottom:0;}
+  @media (max-width:700px){
+    .card--plain{padding:20px 18px 18px 20px;}
+  }
+  .price__link{
+    display:inline-block;
+    margin:clamp(18px,3vw,24px) 0 0;
+    font-size:clamp(14px,1.9vw,16px);
+    font-weight:700;
+    letter-spacing:.03em;
+    color:#fff;
+    text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,.4);
+    padding-bottom:2px;
+    transition:border-color .2s,color .2s;
+  }
+  .price__link:hover{border-color:var(--red1);color:#fff;}
+  @media (max-width:720px){
+    .price__grid{grid-template-columns:minmax(0,1fr);}
+    .price__item{border-radius:16px;}
+  }
+  @media (max-width:400px){
+    .price__item{grid-template-columns:minmax(0,1fr);gap:8px;padding:16px 14px 16px;}
+    .price__num{font-size:28px;}
+    .price__link{font-size:14px;overflow-wrap:anywhere;}
+  }
 </style>
 </head>
 <body>
@@ -515,7 +610,7 @@
       <div class="cover__plate">Полная схема услуг</div>
       <div class="cover__line">Механика &middot; Электроника &middot; Софт &middot; Документация по ЕСКД</div>
       <p class="cover__text">Конструкторский подряд, разработка и модернизация лабораторных и научных установок, локализация импортных приборов, русская документация и сервис. Работаем от технической идеи до серии и сопровождения — механика, прецизионные узлы, гидравлика и пневматика, оптика, электроника, управляющий софт, прошивки, документация по ЕСКД, испытания.</p>
-      <div class="cover__fact">16 направлений &middot; 3 раздела &middot; один подрядчик вместо четырёх</div>
+      <div class="cover__fact">16 направлений &middot; 3 раздела &middot; работы, которые тянутся за прибором &middot; один подрядчик вместо четырёх</div>
     </div>
   </section>
 
@@ -613,6 +708,109 @@
     <div class="wrap">
       <div class="section__head"><h2 class="section__title">Раздел 3 — От развития бизнеса клиента</h2></div>
       <div class="grid" id="grid3"></div>
+    </div>
+  </section>
+
+  <section class="section" id="price">
+    <div class="wrap">
+      <div class="section__head"><h2 class="section__title">От чего зависит цена</h2></div>
+      <p class="price__lead">Одна и та же работа стоит по-разному — разница не в жадности, а в исходнике. Четыре вещи двигают цену сильнее всего; точную цифру называем после осмотра прибора.</p>
+
+      <div class="price__grid">
+        <div class="price__item">
+          <div class="price__num">01</div>
+          <div>
+            <h3>Качество перевода</h3>
+            <p>Машинный перевод со скана — самый дешёвый и годится только чтобы понять прибор. Выверенный живой перевод с терминами и оборотами, принятыми в отечественной лабораторной практике, — другой уровень. Ручное составление документа по ЕСКД — третий: без него сертификация не пройдёт.</p>
+          </div>
+        </div>
+
+        <div class="price__item">
+          <div class="price__num">02</div>
+          <div>
+            <h3>Полнота исходника</h3>
+            <p>Полный иностранный комплект — быстрее и дешевле. Неполный или не соответствующий нашим требованиям — дольше. Когда описания нет вообще, приходится запускать прибор и снимать характеристики на лабораторной базе, чтобы восстановить параметры и порядок работы.</p>
+          </div>
+        </div>
+
+        <div class="price__item">
+          <div class="price__num">03</div>
+          <div>
+            <h3>Объём комплекта</h3>
+            <p>Паспорт и руководство — минимум. Полный комплект для сертификации — больше. Материалы для наладчиков, для рекламы и для специфических отраслей — ещё больше.</p>
+          </div>
+        </div>
+
+        <div class="price__item">
+          <div class="price__num">04</div>
+          <div>
+            <h3>Тип прибора</h3>
+            <p>Пипет-дозатор, иономер, вормер — один объём работы. Хроматографический комплекс в защищённом шкафу с кондиционированием, генерацией элюента и автосамплером — совсем другой. Разный и уровень документированности: на приборы Agilent документы существуют, на индийский титратор всё сочиняется с нуля.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="price__panel">Поэтому в письме всегда стоит „от“: это нижняя граница для честного случая, а не обещание. Точная сумма появляется после технического задания и осмотра прибора.</p>
+
+      <a class="price__link" href="#contact">Пришлите имеющиеся документы — скажем, к какому уровню они относятся →</a>
+    </div>
+  </section>
+
+  <section class="section" id="more">
+    <div class="wrap">
+      <div class="section__head"><h2 class="section__title">Что тянется за прибором</h2></div>
+      <p class="section__lead">Прибор почти никогда не продаётся один. Рядом всегда есть работа, которую заказчик не планировал, но без неё прибор не работает.</p>
+
+      <div class="grid">
+        <div class="card card--red card--plain">
+          <h3>Кондоминиум импортёров</h3>
+          <p>Несколько компаний ввезли один и тот же прибор, и каждой нужна русская документация. Собираем их вместе: работа одна, цена делится на всех, каждый платит свою часть. Выгодно всем — но выгоднее всех тому, кто заходит первым: после первой поставки материалы уходят в сеть, и остальные их просто копируют.</p>
+        </div>
+        <div class="card card--light card--plain">
+          <h3>Онлайн-консультации по прибору</h3>
+          <p>Продавец или лаборант со стороны покупателя: разбор характеристик, реальных возможностей и особенностей применения, кейсы из практики — что прибор действительно умеет и где ломается. Формат — созвон по конкретному прибору и конкретной задаче.</p>
+        </div>
+        <div class="card card--red card--plain">
+          <h3>Презентационные материалы</h3>
+          <p>Продающий текст для сайта, листовки, буклеты и флаеры, материалы для выставок, конференций и демонстрационных залов. Из технического описания делаем аргумент, который понятен покупателю.</p>
+        </div>
+        <div class="card card--light card--plain">
+          <h3>Приспособления и недостающие узлы</h3>
+          <p>В комплекте чего-то нет: нужного приспособления, узла, расходника. Проектируем и отдаём в производство — вместо того чтобы искать по миру то, чего уже не выпускают.</p>
+        </div>
+        <div class="card card--red card--plain">
+          <h3>Интеграция с отечественным ПО</h3>
+          <p>Импортный прибор приходит со своим софтом на чужом языке и с непонятной логикой интерфейса. Переносим драйверы и подключаем прибор к отечественному программному обеспечению — с учётом других портов и протоколов конкретной модели.</p>
+        </div>
+        <div class="card card--light card--plain">
+          <h3>Сертификация и легализация</h3>
+          <p>Сопровождение сертификации для легальной продажи на внутреннем рынке: комплект документов, испытания, работа с органом по сертификации. Без этого этапа прибор нельзя продавать — только хранить.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="consult">
+    <div class="wrap">
+      <div class="section__head"><h2 class="section__title">Как мы отвечаем на вопросы</h2></div>
+      <p class="section__lead">Консультация — это наша работа, как приём у адвоката. Поэтому у ответов есть правила, и они не меняются от размера клиента.</p>
+
+      <div class="grid">
+        <div class="card card--light card--plain">
+          <h3>На «сможете?» отвечаем бесплатно и сразу</h3>
+          <p>Позвонили узнать, берёмся ли мы за задачу, — скажем прямо, без «пришлите ТЗ и мы подумаем». Это разговор на пять минут, и он бесплатный.</p>
+        </div>
+        <div class="card card--red card--plain">
+          <h3>Содержательный ответ — это уже работа</h3>
+          <p>На вопрос «как нам организовать пуско-наладку» короткого ответа не существует: он зависит от договора с вашим клиентом, от методик, от того, есть ли обучение в комплекте, на чьей базе всё происходит. Такой разбор — либо документ, либо оплаченная консультация, где мы проводим вас по всему процессу целиком.</p>
+        </div>
+        <div class="card card--light card--plain">
+          <h3>Вас не оставят без следующего шага</h3>
+          <p>Короткий ответ на сложный вопрос выглядит заботой, но обходится дороже: его всё равно придётся проверять. Поэтому вместо «наверное, так» вы слышите, какого уровня ответ нужен, что он в себя включает и сколько стоит.</p>
+        </div>
+      </div>
+
+      <p class="price__panel">Осознанный перевод документа с редактурой — тоже консультация, просто оформленная как документ.</p>
     </div>
   </section>
 
