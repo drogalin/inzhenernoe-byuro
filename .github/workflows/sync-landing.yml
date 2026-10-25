@@ -1,0 +1,18 @@
+name: sync landing
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync from YouMind
+        run: curl -fsSL "https://cdn.youmindassets.com/artifacts/01a173f3-c3bd-7b26-ba5f-24c9d267d140/index.html" -o index.html
+      - name: Commit
+        run: |
+          git config user.name "drogalin"
+          git config user.email "drogalin@users.noreply.github.com"
+          git add index.html
+          git commit -m "Sync landing from YouMind" || echo "no changes"
+          git push
